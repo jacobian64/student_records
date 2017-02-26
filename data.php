@@ -30,8 +30,8 @@
 			<div class="dropdown">
 				<button class="btn btn-primary" data-toggle="dropdown">actions<span class="caret"> </span></button>
 				<ul class="dropdown-menu"> 
-  				<li><a href="javascript:void(0);" onclick="edit_request(<?php echo $rows['id']; ?>);">Edit</a></li>
-				<li><a href="javascript:void(0);" onclick="ajax_request('delete_record', <?php echo $rows['id']; ?>);">Delete</a></li>
+  				<li><a href="javascript:void(0);" onclick="edit_request('edit_req',<?php echo $rows['id'];?>);">Edit</a></li>
+				<li><a href="javascript:void(0);" onclick="ajax_request('delete_record', <?php echo $rows['id'];?>);">Delete</a></li>
 				</ul>		
 				</div>
 				</td>

@@ -42,19 +42,29 @@
 				xmlhttp.send();
 			}
 
-			function edit_request(edit_id) {
-
-
+			function edit_request(req_type,edit_id) {	
+					if(req_type == 'edit_req'){
+						ed_student_name = '';
+						ed_student_subject = '';
+						ed_student_fee = '';
+				} else {
+					var ed_student_name = document.getElementById('ed_student_name').value;
+					var ed_student_subject = document.getElementById('ed_student_subject').value;
+					var ed_student_fee = document.getElementById('ed_student_fee').value;
+				}
 				var xmlhttp = new XMLHttpRequest();
 
 				xmlhttp.onreadystatechange = function () {
 					if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 						var form_data = document.getElementById('form_data');
 						form_data.innerHTML = xmlhttp.responseText; 
+						if(req_type == 'edit_button'){
+							window.location.reload();
+						}
 					}
 				}
 
-				xmlhttp.open('GET','edit.php?edit_id='+edit_id,true);
+				xmlhttp.open('GET','edit.php?req_type='+req_type+'&edit_id='+edit_id+'&ed_stu_name='+ed_student_name+'&ed_stu_subject='+ed_student_subject+'&ed_stu_fee='+ed_student_fee,true);
 				xmlhttp.send();
 			}
 		</script>
@@ -82,10 +92,10 @@
 			<div class="col-md-3"> 
 				<select id="student_subject" class="form-control">
 				<option value="">select your subject</option>
-					<option value="psikology">psikologi</option>
+					<option value="psikology">psikology</option>
 					<option value="kalkulus">kalkulus</option>
-					<option value="mekanical">mekanik</option>
-					<option value="language">deutsch</option>
+					<option value="mekanical">mekanical</option>
+					<option value="bahasa">bahasa</option>
 				</select>
 			</div>
 				<label class="control-label col-md-2">student fee</label>

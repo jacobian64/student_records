@@ -10,7 +10,19 @@ status
 404: page not found
 
 if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-	
+echo "# my_source_code" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:jacobian64/my_source_code.git
+git push -u origin master	
+
+…or push an existing repository from the command line
+
+git remote add origin git@github.com:jacobian64/my_source_code.git
+git push -u origin master
+
+
 
 }
 
