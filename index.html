@@ -1,0 +1,119 @@
+<html> 
+	<head> 
+		<title>school record by jacobian</title>
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script> 
+			function ajax_request(req, id) {
+				var student_name = document.getElementById('student_name').value;
+				var student_subject = document.getElementById('student_subject').value;
+				var student_fee = document.getElementById('student_fee').value;
+
+				if(req == undefined) {
+					req == '';
+					id= '';
+				} else if (req == 'add_new_record') {
+					id = '';
+				}
+
+				if( student_name == '') {
+					student_name = '';
+				}
+
+				if(student_subject == '') {
+					student_subject = '';
+				}
+
+				if(student_fee == '') {
+					student_fee = '';
+				}
+
+
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function () {
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						var test_div = document.getElementById('test');
+						test_div.innerHTML = xmlhttp.responseText; 
+					}
+				}
+
+				xmlhttp.open('GET','data.php?id='+id+'&req='+req+'&stu_name='+student_name+'&stu_subject='+student_subject+'&stu_fee='+student_fee,true);
+				xmlhttp.send();
+			}
+
+			function edit_request(edit_id) {
+
+
+				var xmlhttp = new XMLHttpRequest();
+
+				xmlhttp.onreadystatechange = function () {
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						var form_data = document.getElementById('form_data');
+						form_data.innerHTML = xmlhttp.responseText; 
+					}
+				}
+
+				xmlhttp.open('GET','edit.php?edit_id='+edit_id,true);
+				xmlhttp.send();
+			}
+		</script>
+		<style> 
+		.btn, .form-control {
+			border-radius: 0;
+		}
+		</style>
+		
+	</head>
+<body onload="ajax_request();"> 
+	<div class="container">
+		<div class="jumbotron"> 
+			<h1>school records</h1>
+			</div>
+		<div class="form-horizontal" id="form_data"> 
+			<div class="form-group">
+				<label class="control-label col-md-2">student name</label>
+			<div class="col-md-8"> 
+				<input type="text" id="student_name" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-md-2">student subject</label>
+			<div class="col-md-3"> 
+				<select id="student_subject" class="form-control">
+				<option value="">select your subject</option>
+					<option value="psikology">psikologi</option>
+					<option value="kalkulus">kalkulus</option>
+					<option value="mekanical">mekanik</option>
+					<option value="language">deutsch</option>
+				</select>
+			</div>
+				<label class="control-label col-md-2">student fee</label>
+				<div class="col-md-3"> 
+				<input id="student_fee" type="number" class="form-control">
+			</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-8 col-md-offset-2"> 
+				<button class="btn btn-danger btn-block" onclick="ajax_request('add_new_record');">Add new record</button></div>
+				</div>
+		</div>
+		<table class="table table-striped">
+			<thead> 
+				<tr class="success"> 
+					<th>S.no </th>
+					<th>student name</th>
+					<th>student subject</th>
+					<th>student fee</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+				<tbody id="test"> 
+				
+				</tbody>
+		 </table>
+	</div>	
+	</div>
+
+</body>
+</html>

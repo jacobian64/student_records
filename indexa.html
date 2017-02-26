@@ -1,0 +1,25 @@
+<html> 
+	<head> 
+		<title>learn hisap memek with luana martri </title>
+		<script> 
+			function ajax_request(get_val) {
+				var xmlhttp = new XMLHttpRequest();
+				
+				xmlhttp.onreadystatechange = function () {
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						var result = document.getElementById('result');
+						result.innerHTML = xmlhttp.responseText; 
+					}
+				}
+
+				xmlhttp.open('GET','data.php?var1='+get_val,true);
+				xmlhttp.send();
+			}
+		</script>
+	</head>
+<body>
+	<button onclick="ajax_request();"> hisap pantat luana martri </button>
+	<input type="text" onkeyup="ajax_request(this.value);"> 
+	<div id="result"> this is the result div </div>
+</body>
+</html>
