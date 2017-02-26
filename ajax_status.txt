@@ -27,24 +27,7 @@ git push -u origin master
 }
 
 
-	<button onclick="ajax_request();"> hisap pantat luana martri </button>
-	<input type="text" onkeyup="ajax_request(this.value);"> 
-	<div id="result"> this is the result div </div>
 
-	<?php
-	/*$data = 'this is memek lulu yg indah';
-	$new_data = 'This is lubang pantat lulu yg wangi';
-	echo $new_data; 
-
-	$names[] = 'lulu';
-	$names[] = 'memek';
-	$names[] = 'pantat';
-	$names[] = 'titit';
-	$names[] = 'celana';
-	$names[] = 'dalam';
-	$names[] = 'beha';
-	$names[] = 'luanamartri';
-	$names[] = 'paha';
 
 	//$c = 1;
 	foreach ($names as $name) {
@@ -61,7 +44,7 @@ git push -u origin master
 
 	//echo $_REQUEST['var1'];
 */
-echo 'This is the php page sonya';
+
 
 
 

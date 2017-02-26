@@ -1,7 +1,7 @@
 <?php
 	$server = 'localhost';
-	$user = 'jacobian64';
-	$password = 'motorola5';
+	$user = 'jacobian';
+	$password = 'password';
 	$db = 'school_record';
 
 	$conn = mysqli_connect($server, $user, $password, $db);
